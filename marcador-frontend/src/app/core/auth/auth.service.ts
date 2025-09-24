@@ -22,6 +22,11 @@ export class AuthService {
     return localStorage.getItem('refreshToken');
   }
 
+  get accesos(): string[] {
+    const me = this.me$.value;
+    return me?.accesos ?? [];
+  }
+
   login(payload: LoginRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.base}/auth/login`, payload).pipe(
       tap(res => this.persistAuth(res)),
@@ -58,5 +63,9 @@ export class AuthService {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     this.me$.next(null);
+  }
+
+  hasAccess(acceso: string): boolean {
+    return this.accesos.includes(acceso);
   }
 }

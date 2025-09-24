@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { EquiposService } from '../../core/services/equipos.service';
 import { LogosService } from '../../core/services/logos.service';
 import { Equipo, CreateEquipo } from '../../core/models/equipo.model';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf} from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HasAccessDirective } from '../../core/auth/has-access.directive';
 
 @Component({
   standalone: true,
   selector: 'app-equipos-list',
-  imports: [CommonModule, NgFor, NgIf, FormsModule],
+  imports: [CommonModule, NgFor, NgIf, FormsModule, HasAccessDirective],
   templateUrl: './equipos-list.component.html',
   styleUrls: ['./equipos-list.component.scss']
 })

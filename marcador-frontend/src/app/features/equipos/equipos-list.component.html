@@ -41,8 +41,8 @@
         <button class="btn btn-sm btn-outline-primary" (click)="uploadLogo(e.id)" [disabled]="!selectedFile">Subir</button>
       </td>
       <td class="text-end">
-        <button class="btn btn-sm btn-outline-secondary me-1" (click)="edit(e)">Editar</button>
-        <button class="btn btn-sm btn-outline-danger" (click)="remove(e.id)">Eliminar</button>
+        <button class="btn btn-sm btn-outline-secondary me-1" (click)="edit(e)" hasAccess="Equipos.Write">Editar</button>
+        <button class="btn btn-sm btn-outline-danger" (click)="remove(e.id)" hasAccess="Equipos.Write">Eliminar</button>
       </td>
     </tr>
   </tbody>

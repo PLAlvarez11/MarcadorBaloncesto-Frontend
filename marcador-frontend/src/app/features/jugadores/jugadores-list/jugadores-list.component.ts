@@ -5,11 +5,12 @@ import { JugadoresService } from '../../../core/services/jugadores.service';
 import { EquiposService } from '../../../core/services/equipos.service';
 import { Jugador, CreateJugador } from '../../../core/models/jugador.model';
 import { Equipo } from '../../../core/models/equipo.model';
+import { HasAccessDirective } from '../../../core/auth/has-access.directive';
 
 @Component({
   selector: 'app-jugadores-list',
   standalone: true,
-  imports: [CommonModule, NgFor, NgIf, FormsModule],
+  imports: [CommonModule, NgFor, NgIf, FormsModule, HasAccessDirective],
   templateUrl: './jugadores-list.component.html',
   styleUrls: ['./jugadores-list.component.scss']
 })

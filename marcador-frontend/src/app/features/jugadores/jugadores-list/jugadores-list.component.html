@@ -39,7 +39,7 @@
         <input class="form-control" [(ngModel)]="form.nacionalidad">
       </div>
       <div class="col-md-3 d-flex align-items-end">
-        <button class="btn btn-primary me-2" (click)="save()">
+        <button class="btn btn-primary" (click)="save()" hasAccess="Jugadores.Write">
           {{ editingId == null ? 'Crear' : 'Actualizar' }}
         </button>
         <button class="btn btn-secondary" *ngIf="editingId != null" (click)="cancel()">Cancelar</button>
