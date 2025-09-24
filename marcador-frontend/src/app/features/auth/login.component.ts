@@ -12,13 +12,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  form = this.fb.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required],
-  });
-  loading = false; error = '';
+  
+  loading = false; error = '';  
+  form;
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
+      this.form = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
 
   submit() {
     if (this.form.invalid) return;

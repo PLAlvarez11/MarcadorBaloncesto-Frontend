@@ -2,13 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PartidosService } from '../../core/services/partidos.service';
 import { PartidoDto } from '../../core/models/partido.models';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule, NgIf, NgFor } from '@angular/common';
 import { interval, Subscription } from 'rxjs';
 
 @Component({
   standalone: true,
   selector: 'app-marcador',
-  imports: [CommonModule, NgIf],
+  imports: [CommonModule, NgIf, NgFor],
   templateUrl: './marcador.component.html',
   styleUrls: ['./marcador.component.scss']
 })

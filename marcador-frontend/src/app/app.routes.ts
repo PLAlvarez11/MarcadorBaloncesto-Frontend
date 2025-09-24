@@ -6,5 +6,6 @@ export const routes: Routes = [
   { path: '', canActivate: [authGuard], loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent) },
   { path: 'equipos', canActivate: [authGuard], loadComponent: () => import('./features/equipos/equipos-list.component').then(m => m.EquiposListComponent) },
   { path: 'marcador/:id', canActivate: [authGuard], loadComponent: () => import('./features/marcador/marcador.component').then(m => m.MarcadorComponent) },
+  { path: 'jugadores', canActivate: [authGuard], loadComponent: () => import('./features/jugadores/jugadores-list/jugadores-list').then(m => m.JugadoresListComponent) },
   { path: '**', redirectTo: '' }
 ];
