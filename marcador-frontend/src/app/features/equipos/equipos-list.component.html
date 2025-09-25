@@ -1,50 +1,56 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
-  <h3>Equipos</h3>
+  <h3 class="titulo-equipos">🏀 Equipos</h3>
 </div>
 
-<div class="card mb-4">
+<div class="card equipo-form mb-4">
   <div class="card-body">
     <div class="row g-2">
       <div class="col-md-4">
         <label class="form-label">Nombre</label>
-        <input class="form-control" [(ngModel)]="form.nombre">
+        <input class="form-control" [(ngModel)]="form.nombre" placeholder="Ej. Lakers">
       </div>
       <div class="col-md-4">
         <label class="form-label">Ciudad</label>
-        <input class="form-control" [(ngModel)]="form.ciudad">
+        <input class="form-control" [(ngModel)]="form.ciudad" placeholder="Ej. Los Ángeles">
       </div>
       <div class="col-md-4 d-flex align-items-end">
-        <button class="btn btn-primary me-2" (click)="save()">
-          {{ editingId == null ? 'Crear' : 'Actualizar' }}
+        <button class="btn btn-crear me-2" (click)="save()">
+          {{ editingId == null ? '➕ Crear' : '✏️ Actualizar' }}
         </button>
-        <button class="btn btn-secondary" *ngIf="editingId != null" (click)="cancel()">Cancelar</button>
+        <button class="btn btn-cancelar" *ngIf="editingId != null" (click)="cancel()">❌ Cancelar</button>
       </div>
     </div>
   </div>
 </div>
 
-<table class="table table-hover">
+<table class="table table-hover tabla-equipos">
   <thead>
     <tr>
-      <th>Logo</th><th>Nombre</th><th>Ciudad</th><th>Subir logo</th><th></th>
+      <th>Logo</th>
+      <th>Nombre</th>
+      <th>Ciudad</th>
+      <th>Subir logo</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let e of equipos">
       <td style="width:80px">
-        <img [id]="'logo-'+e.id" [src]="logos.getLogoUrl(e.id)" alt="logo" class="img-thumbnail" style="width:60px;height:60px;object-fit:contain">
+        <img [id]="'logo-'+e.id" [src]="logos.getLogoUrl(e.id)" alt="logo equipo"
+             class="logo-equipo img-thumbnail">
       </td>
-      <td>{{ e.nombre }}</td>
+      <td class="fw-bold">{{ e.nombre }}</td>
       <td>{{ e.ciudad }}</td>
       <td>
         <input type="file" (change)="onFileChange($event)" class="form-control form-control-sm mb-1">
-        <button class="btn btn-sm btn-outline-primary" (click)="uploadLogo(e.id)" [disabled]="!selectedFile">Subir</button>
+        <button class="btn btn-sm btn-subir" (click)="uploadLogo(e.id)" [disabled]="!selectedFile">📤 Subir</button>
       </td>
       <td class="text-end">
-        <button class="btn btn-sm btn-outline-secondary me-1" (click)="edit(e)" hasAccess="Equipos.Write">Editar</button>
-        <button class="btn btn-sm btn-outline-danger" (click)="remove(e.id)" hasAccess="Equipos.Write">Eliminar</button>
+        <button class="btn btn-sm btn-editar me-1" (click)="edit(e)" hasAccess="Equipos.Write">✏️ Editar</button>
+        <button class="btn btn-sm btn-eliminar" (click)="remove(e.id)" hasAccess="Equipos.Write">🗑️ Eliminar</button>
       </td>
     </tr>
   </tbody>
 </table>
+
 

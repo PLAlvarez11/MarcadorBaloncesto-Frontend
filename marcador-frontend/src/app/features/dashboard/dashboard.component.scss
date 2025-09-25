@@ -1,0 +1,100 @@
+.historial-container {
+  background: #f9f4ef;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(50, 30, 10, 0.2);
+  font-family: 'Poppins', sans-serif;
+  color: #3d2b1f;
+}
+
+.titulo {
+  text-align: center;
+  color: #d35400;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(80, 40, 10, 0.2);
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #8e5a2a;
+  font-weight: bold;
+}
+
+.tabla-partidos {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff8f0;
+
+  thead {
+    background: linear-gradient(135deg, #d35400, #a84300);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    th {
+      padding: 12px;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: all 0.3s ease;
+
+      &:nth-child(even) {
+        background: #fdf2e6;
+      }
+
+      &:hover {
+        background: #ffe1b3;
+        transform: scale(1.02);
+      }
+
+      td {
+        padding: 12px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #3d2b1f;
+
+        &.local {
+          font-weight: bold;
+          color: #a84300;
+        }
+
+        &.visitante {
+          font-weight: bold;
+          color: #d35400;
+        }
+
+        &.resultado {
+          font-weight: bold;
+          color: #2e2e2e;
+        }
+      }
+    }
+  }
+}
+
+.btn-ver {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 2px solid #d35400;
+  color: #d35400;
+  background: transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #d35400;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(211, 84, 0, 0.4);
+  }
+}

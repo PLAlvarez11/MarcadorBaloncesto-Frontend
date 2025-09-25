@@ -1,17 +1,22 @@
-<div class="row justify-content-center">
-  <div class="col-md-4">
-    <h3 class="mb-3">Iniciar sesión</h3>
+<div class="login-container">
+  <div class="login-card">
+    <h3 class="login-title">🏀 Iniciar sesión</h3>
     <form (ngSubmit)="submit()" [formGroup]="form">
       <div class="mb-3">
         <label class="form-label">Usuario</label>
-        <input class="form-control" formControlName="username">
+        <input class="form-control" formControlName="username" />
       </div>
       <div class="mb-3">
         <label class="form-label">Contraseña</label>
-        <input type="password" class="form-control" formControlName="password">
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
       </div>
-      <button class="btn btn-primary w-100" [disabled]="loading">Entrar</button>
-      <div class="text-danger mt-2" *ngIf="error">{{ error }}</div>
+      <button class="btn-login" [disabled]="loading">Entrar</button>
+      <div class="error-msg" *ngIf="error">{{ error }}</div>
     </form>
   </div>
 </div>
+

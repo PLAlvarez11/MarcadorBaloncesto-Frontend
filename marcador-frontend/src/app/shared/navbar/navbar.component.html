@@ -1,18 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-basket">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">Marcador</a>
+    <a class="navbar-brand" routerLink="/">🏀 Marcador</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div id="nav" class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a routerLink="/" routerLinkActive="active" class="nav-link">Historial</a></li>
-        <li class="nav-item"><a routerLink="/equipos" routerLinkActive="active" class="nav-link">Equipos</a></li>
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="active" class="nav-link">Historial</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/equipos" routerLinkActive="active" class="nav-link">Equipos</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/jugadores" routerLinkActive="active" class="nav-link">Jugadores</a>
+        </li>
       </ul>
-      <div class="d-flex text-white" *ngIf="(me$ | async) as me">
+
+      <div class="d-flex text-white align-items-center" *ngIf="(me$ | async) as me">
         <span class="me-3">👤 {{ me.username }} ({{ me.role }})</span>
-        <button class="btn btn-outline-light btn-sm" (click)="logout()">Salir</button>
+        <button class="btn btn-logout btn-sm" (click)="logout()">Salir</button>
       </div>
     </div>
   </div>
 </nav>
+

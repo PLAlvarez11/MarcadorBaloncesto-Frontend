@@ -1,54 +1,60 @@
-<div *ngIf="!data">Cargando...</div>
-<div *ngIf="data" class="card">
-  <div class="card-body text-center">
-    <h4>{{ data.equipo1Nombre }} vs {{ data.equipo2Nombre }}</h4>
-    <div class="display-5 my-3">
+<div *ngIf="!data" class="loading">🏀 Cargando marcador...</div>
+
+<div *ngIf="data" class="marcador-card">
+  <div class="marcador-body text-center">
+    <h4 class="titulo">{{ data.equipo1Nombre }} 🆚 {{ data.equipo2Nombre }}</h4>
+
+    <div class="marcador-display">
       {{ data.puntajeEquipo1 }} - {{ data.puntajeEquipo2 }}
     </div>
-    <div class="mb-2">Cuarto: <strong>{{ data.cuartoActual }}</strong></div>
+
+    <div class="cuarto">⏱️ Cuarto: <strong>{{ data.cuartoActual }}</strong></div>
 
     <div class="row g-3 my-3">
-      <div class="col-md-6">
-        <h5>{{ data.equipo1Nombre }}</h5>
-        <div class="btn-group me-2">
-          <button class="btn btn-outline-primary" (click)="add(1,1)">+1</button>
-          <button class="btn btn-outline-primary" (click)="add(1,2)">+2</button>
-          <button class="btn btn-outline-primary" (click)="add(1,3)">+3</button>
+      <!-- Equipo 1 -->
+      <div class="col-md-6 equipo-card">
+        <h5 class="equipo">{{ data.equipo1Nombre }}</h5>
+        <div class="btn-group mb-2">
+          <button class="btn btn-score" (click)="add(1,1)">+1</button>
+          <button class="btn btn-score" (click)="add(1,2)">+2</button>
+          <button class="btn btn-score" (click)="add(1,3)">+3</button>
         </div>
-        <div class="btn-group">
-          <button class="btn btn-outline-secondary" (click)="sub(1,1)">-1</button>
-          <button class="btn btn-outline-secondary" (click)="sub(1,2)">-2</button>
-          <button class="btn btn-outline-secondary" (click)="sub(1,3)">-3</button>
+        <div class="btn-group mb-2">
+          <button class="btn btn-sub" (click)="sub(1,1)">-1</button>
+          <button class="btn btn-sub" (click)="sub(1,2)">-2</button>
+          <button class="btn btn-sub" (click)="sub(1,3)">-3</button>
         </div>
-        <div class="mt-2">
-          Faltas: <strong>{{ data.faltasEquipo1 }}</strong>
-          <button class="btn btn-sm btn-outline-warning ms-2" (click)="falta(1)">+ Falta</button>
+        <div class="faltas">
+          🚨 Faltas: <strong>{{ data.faltasEquipo1 }}</strong>
+          <button class="btn btn-sm btn-falta" (click)="falta(1)">+ Falta</button>
         </div>
       </div>
 
-      <div class="col-md-6">
-        <h5>{{ data.equipo2Nombre }}</h5>
-        <div class="btn-group me-2">
-          <button class="btn btn-outline-primary" (click)="add(2,1)">+1</button>
-          <button class="btn btn-outline-primary" (click)="add(2,2)">+2</button>
-          <button class="btn btn-outline-primary" (click)="add(2,3)">+3</button>
+      <!-- Equipo 2 -->
+      <div class="col-md-6 equipo-card">
+        <h5 class="equipo">{{ data.equipo2Nombre }}</h5>
+        <div class="btn-group mb-2">
+          <button class="btn btn-score" (click)="add(2,1)">+1</button>
+          <button class="btn btn-score" (click)="add(2,2)">+2</button>
+          <button class="btn btn-score" (click)="add(2,3)">+3</button>
         </div>
-        <div class="btn-group">
-          <button class="btn btn-outline-secondary" (click)="sub(2,1)">-1</button>
-          <button class="btn btn-outline-secondary" (click)="sub(2,2)">-2</button>
-          <button class="btn btn-outline-secondary" (click)="sub(2,3)">-3</button>
+        <div class="btn-group mb-2">
+          <button class="btn btn-sub" (click)="sub(2,1)">-1</button>
+          <button class="btn btn-sub" (click)="sub(2,2)">-2</button>
+          <button class="btn btn-sub" (click)="sub(2,3)">-3</button>
         </div>
-        <div class="mt-2">
-          Faltas: <strong>{{ data.faltasEquipo2 }}</strong>
-          <button class="btn btn-sm btn-outline-warning ms-2" (click)="falta(2)">+ Falta</button>
+        <div class="faltas">
+          🚨 Faltas: <strong>{{ data.faltasEquipo2 }}</strong>
+          <button class="btn btn-sm btn-falta" (click)="falta(2)">+ Falta</button>
         </div>
       </div>
     </div>
 
-    <div class="d-flex justify-content-center gap-2">
-      <button class="btn btn-outline-dark" (click)="cuarto()">Siguiente cuarto</button>
-      <button class="btn btn-outline-danger" (click)="reiniciar()">Reiniciar</button>
-      <button class="btn btn-success" (click)="terminar()">Terminar Partido</button>
+    <div class="acciones">
+      <button class="btn btn-cuarto" (click)="cuarto()">⏭️ Siguiente cuarto</button>
+      <button class="btn btn-reiniciar" (click)="reiniciar()">🔄 Reiniciar</button>
+      <button class="btn btn-terminar" (click)="terminar()">🏆 Terminar Partido</button>
     </div>
   </div>
 </div>
+

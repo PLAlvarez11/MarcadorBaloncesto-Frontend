@@ -1,18 +1,29 @@
-<h3>Historial de Partidos</h3>
-<div *ngIf="loading">Cargando...</div>
-<table class="table table-striped" *ngIf="!loading">
-  <thead>
-    <tr>
-      <th>Fecha</th><th>Local</th><th>Visitante</th><th>Resultado</th><th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of items">
-      <td>{{ p.fecha | date:'short' }}</td>
-      <td>{{ p.equipo1 }}</td>
-      <td>{{ p.equipo2 }}</td>
-      <td>{{ p.puntajeEquipo1 }} - {{ p.puntajeEquipo2 }}</td>
-      <td><a [routerLink]="['/marcador', p.id]" class="btn btn-sm btn-outline-primary">Ver</a></td>
-    </tr>
-  </tbody>
-</table>
+<div class="historial-container">
+  <h3 class="titulo">🏀 Historial de Partidos</h3>
+
+  <div *ngIf="loading" class="loading">Cargando partidos...</div>
+
+  <table class="tabla-partidos" *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Local</th>
+        <th>Visitante</th>
+        <th>Resultado</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of items">
+        <td>{{ p.fecha | date:'short' }}</td>
+        <td class="local">{{ p.equipo1 }}</td>
+        <td class="visitante">{{ p.equipo2 }}</td>
+        <td class="resultado">{{ p.puntajeEquipo1 }} - {{ p.puntajeEquipo2 }}</td>
+        <td>
+          <a [routerLink]="['/marcador', p.id]" class="btn-ver">Ver</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
