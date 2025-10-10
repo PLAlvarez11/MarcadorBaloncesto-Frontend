@@ -1,0 +1,32 @@
+<div class="equipos-container">
+  <h2>Gestión de Equipos</h2>
+
+  <form (submit)="crearEquipo()">
+    <input type="text" [(ngModel)]="nuevoEquipo.nombre" name="nombre" placeholder="Nombre del equipo" required>
+    <button type="submit">➕ Agregar</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let equipo of equipos">
+        <td>{{ equipo.id }}</td>
+        <td>
+          <input [(ngModel)]="equipo.nombre" name="nombre{{equipo.id}}" />
+        </td>
+        <td>
+          <button (click)="actualizarEquipo(equipo)">💾 Guardar</button>
+          <button (click)="eliminarEquipo(equipo.id)">🗑️ Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+</div>

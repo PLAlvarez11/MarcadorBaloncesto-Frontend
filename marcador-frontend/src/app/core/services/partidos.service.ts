@@ -6,6 +6,12 @@ import { PartidoDto, PartidoHistorial } from '../models/partido.models';
 
 @Injectable({ providedIn: 'root' })
 export class PartidosService {
+  getHistorial() {
+      throw new Error('Method not implemented.');
+  }
+  terminar(id: number) {
+      throw new Error('Method not implemented.');
+  }
   private base = `${environment.apiUrl}/api/partidos`;
   private marcador = `${environment.apiUrl}/api/marcador`;
 

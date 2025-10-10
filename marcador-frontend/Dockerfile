@@ -1,8 +1,11 @@
+FROM node:20 AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build --prod
+
 FROM nginx:alpine
-
-# Copiamos nuestras apps Angular a la raíz del servidor
-COPY dist/marcador-frontend/browser /var/www/marcador-frontend
-# Copiamos la configuración personalizada de nginx
+COPY --from=build /app/dist/marcadorbaloncesto-frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-
 EXPOSE 80

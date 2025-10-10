@@ -5,6 +5,15 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class LogosService {
+  deleteLogo(equipoId: number) {
+      throw new Error('Method not implemented.');
+  }
+  getLogo(equipoId: number) {
+      throw new Error('Method not implemented.');
+  }
+  uploadLogo(equipoId: number, selectedFile: File) {
+      throw new Error('Method not implemented.');
+  }
   private base = `${environment.apiUrl}/api/logos`;
 
   constructor(private http: HttpClient) {}
